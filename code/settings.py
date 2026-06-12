@@ -1,3 +1,5 @@
+import pygame
+
 SCREEN_WIDTH = 1280
 SCREEN_HEIGHT = 800
 FPS = 60
@@ -19,6 +21,9 @@ PHASES = {
 BG_PATH = '../Assets/background.png'
 PLAYER_PATH = '../Assets/player.png'
 ZOMBIE_PATH = '../Assets/zombie1.png'
+MENU_PATH = '../Assets/Menu.png'
+MENU_MUSIC_PATH = "../Assets/music_menu.mp3"
+GAME_MUSIC_PATH = "../Assets/music_game.mp3"
 
 # Tamanhos
 PLAYER_SIZE = (72, 72)
@@ -35,5 +40,12 @@ YELLOW = (255, 255, 0)
 MAGENTA = (255, 0, 255)
 DARK_GRAY = (50, 50, 50)
 BLACK = (0, 0, 0)
+GREEN = (0, 255, 0)
+RED = (255, 0, 0)
 
 SHOT_COOLDOWN_MS: int = 140
+PLAYER_TOUCH_DAMAGE = PLAYER_HP / 3 #10 #4
+PLAYER_HIT_COOLDOWN_MS = 220 #800
+HEALTH_BAR_BG_COLOR = (30, 30, 30) #DARK_GRAY
+HEALTH_BAR_FILL_COLOR = (30, 30, 30) #(255, 0, 0)
+HEALTH_BAR_BORDER_COLOR = WHITE
