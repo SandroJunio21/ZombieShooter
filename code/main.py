@@ -27,7 +27,7 @@ def main():
         if state == "MENU":
             font = pygame.font.SysFont("Arial", 40)
             text = font.render("Pressione ESPAÇO para iniciar", True, WHITE)
-            screen.blit(text, (410, 340))
+            screen.blit(text, (410, 360))
         else:
             game.update(keys)
             game.draw()

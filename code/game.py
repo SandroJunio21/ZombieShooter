@@ -1,5 +1,5 @@
 import pygame
-from settings import SCREEN_WIDTH, SCREEN_HEIGHT, ZOMBIE_SPEED, ZOMBIE_HP, WHITE
+from settings import SCREEN_WIDTH, SCREEN_HEIGHT, ZOMBIE_SPEED, ZOMBIE_HP, WHITE, YELLOW, SHOT_COOLDOWN_MS, FPS, BLACK
 from background import Background
 from entities import Player, Bullet, Zombie
 
@@ -29,9 +29,16 @@ class Game:
             self.score += 10
             self.spawn_zombie()
 
+
+        hits = pygame.sprite.groupcollide(self.zombies, self.bullets, True, True)
+        for hit in hits:
+            self.score += 10
+            self.spawn_zombie()
+
     def draw(self):
         self.screen.blit(self.background.image, (0,0))
         self.all_sprites.draw(self.screen)
         font = pygame.font.SysFont("Arial", 24)
         text = font.render(f"Score: {self.score}", True, WHITE)
         self.screen.blit(text, (10, 10))
+

@@ -1,6 +1,5 @@
 import pygame
 import os
-
 from settings import DARK_GRAY
 
 
