@@ -1,20 +1,21 @@
-# import pygame, random
-# from settings import COLORS, SCREEN_WIDTH, SCREEN_HEIGHT
+import pygame
+# from settings import BG_PATH, SCREEN_WIDTH, SCREEN_HEIGHT
+# from asset_loader import load_image
 #
 # class Background:
+#     def __init__(self):
+#         self.image = load_image(BG_PATH, (SCREEN_WIDTH, SCREEN_HEIGHT), alpha=False)
+#
 #     def draw(self, surface):
-#         surface.fill((10, 10, 20))
-#         pygame.draw.circle(surface, COLORS['white'], (700, 100), 40)
-#         for _ in range(10):
-#             pygame.draw.rect(surface, (20, 20, 30), (random.randint(0, 800), 500, 50, 100))
+#         surface.blit(self.image, (0, 0))
 
 import pygame
-from settings import BG_PATH, SCREEN_WIDTH, SCREEN_HEIGHT
-from asset_loader import load_image
+from asset_loader import load_image, create_fallback_background
 
-class Background:
+class Background(pygame.sprite.Sprite):
     def __init__(self):
-        self.image = load_image(BG_PATH, (SCREEN_WIDTH, SCREEN_HEIGHT), alpha=False)
-
-    def draw(self, surface):
-        surface.blit(self.image, (0, 0))
+        super().__init__()
+        self.image = load_image("../Assets/background.png", (1280, 800))
+        if "magenta" in str(self.image.get_at((0,0))):
+            self.image = create_fallback_background()
+        self.rect = self.image.get_rect()

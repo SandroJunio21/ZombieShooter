@@ -1,5 +1,5 @@
-SCREEN_WIDTH = 800
-SCREEN_HEIGHT = 600
+SCREEN_WIDTH = 1280
+SCREEN_HEIGHT = 800
 FPS = 60
 #
 COLORS = {
@@ -8,9 +8,6 @@ COLORS = {
     'yellow': (255, 255, 0), 'purple': (128, 0, 128)
 }
 
-PLAYER_SPEED = 7
-PLAYER_HP = 3
-BULLET_SPEED = 10
 
 # Ajuste de dificuldade: altere valores abaixo
 PHASES = {
@@ -26,3 +23,14 @@ ZOMBIE_PATH = '../Assets/zombie1.png'
 # Tamanhos
 PLAYER_SIZE = (72, 72)
 ZOMBIE_SIZE = (64, 64)
+
+PLAYER_SPEED = 8
+PLAYER_HP = 3
+BULLET_SPEED = 10
+ZOMBIE_SPEED = 2
+ZOMBIE_HP = 1
+
+WHITE = (255, 255, 255)
+YELLOW = (255, 255, 0)
+MAGENTA = (255, 0, 255)
+DARK_GRAY = (50, 50, 50)
