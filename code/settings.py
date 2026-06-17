@@ -21,19 +21,23 @@ PHASES = {
 BG_PATH = '../Assets/background.png'
 PLAYER_PATH = '../Assets/player.png'
 ZOMBIE_PATH = '../Assets/zombie1.png'
+ZOMBIE_PATHS = ["../Assets/zombie1.png","../Assets/zombie2.png"]
+BOSS_ZOMBIE_PATH = "../Assets/zombie3.png"
 MENU_PATH = '../Assets/Menu.png'
 MENU_MUSIC_PATH = "../Assets/music_menu.mp3"
 GAME_MUSIC_PATH = "../Assets/music_game.mp3"
 
 # Tamanhos
 PLAYER_SIZE = (72, 72)
-ZOMBIE_SIZE = (64, 64)
+ZOMBIE_SIZE = (90, 90)
+BOSS_ZOMBIE_SIZE = (180, 180)
 
 PLAYER_SPEED = 8
 PLAYER_HP = 3
 BULLET_SPEED = 10
 ZOMBIE_SPEED = 2
 ZOMBIE_HP = 1
+
 
 WHITE = (255, 255, 255)
 YELLOW = (255, 255, 0)

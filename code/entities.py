@@ -43,7 +43,8 @@
 
 import pygame
 import random
-from settings import SCREEN_WIDTH, SCREEN_HEIGHT, PLAYER_SPEED, YELLOW, BULLET_SPEED, PLAYER_PATH, ZOMBIE_PATH
+from settings import SCREEN_WIDTH, SCREEN_HEIGHT, PLAYER_SPEED, YELLOW, BULLET_SPEED, PLAYER_PATH, ZOMBIE_PATH, \
+    ZOMBIE_PATHS, ZOMBIE_SIZE
 from asset_loader import load_image
 
 class Player(pygame.sprite.Sprite):
@@ -72,9 +73,13 @@ class Bullet(pygame.sprite.Sprite):
             self.kill()
 
 class Zombie(pygame.sprite.Sprite):
-    def __init__(self, speed, hp):
+    def __init__(self, speed, hp, image_path = None, image_size=None):
         super().__init__()
-        self.image = load_image(ZOMBIE_PATH, (100, 100))
+        if image_path is None:
+            image_path = random.choice(ZOMBIE_PATHS)
+        if image_size is None:
+            image_size = ZOMBIE_SIZE
+        self.image = load_image(image_path, image_size)
         self.rect = self.image.get_rect(x=random.randint(0, SCREEN_WIDTH - 40), y=-50)
         self.speed = speed
         self.hp = hp
