@@ -24,6 +24,8 @@ class Game:
         self.victory = False
         self.defeated_time = None
         self.configure_level(1)
+        self.max_passed_zombies = 8
+        self.passed_zombies = 0
 
     def spawn_zombie(self, speed=None, hp=None, image_path=None, image_size=None):
         s = speed if speed is not None else ZOMBIE_SPEED
@@ -57,6 +59,13 @@ class Game:
         self.player.update(keys)
         self.bullets.update()
         self.zombies.update()
+        for zombie in self.zombies:
+            if zombie.just_passed_base:
+                self.passed_zombies += 1
+                zombie.just_passed_base = False
+        if self.passed_zombies >= self.max_passed_zombies:
+            self.defeated = True
+            self.defeated_time = pygame.time.get_ticks()
         for bullet in list(self.bullets):
             hits = pygame.sprite.spritecollide(bullet, self.zombies, False, pygame.sprite.collide_mask)
             if hits:
@@ -86,8 +95,10 @@ class Game:
         self.all_sprites.draw(self.screen)
         score_text = self.font.render(f'Score: {self.score}', True, WHITE)
         level_text = self.font.render(f'Level: {self.level}', True, WHITE)
+        base_text = self.font.render(f'Invasão Zumbi: {self.passed_zombies}/{self.max_passed_zombies}', True, WHITE)
         self.screen.blit(score_text, (10, 10))
         self.screen.blit(level_text, (10, 40))
+        self.screen.blit(base_text, (10, 70))
         bar_x, bar_y = SCREEN_WIDTH - 220, 10
         pygame.draw.rect(self.screen, HEALTH_BAR_BG_COLOR, (bar_x, bar_y, 200, 20))
         ratio = self.player_hp / self.max_player_hp

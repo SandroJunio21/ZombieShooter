@@ -86,10 +86,13 @@ class Zombie(pygame.sprite.Sprite):
         self.max_hp = hp
         self.has_damaged_player = False
         self.mask = pygame.mask.from_surface(self.image)
+        self.just_passed_base = False
 
     def update(self):
+        self.just_passed_base = False
         self.rect.y += self.speed
         if self.rect.top > SCREEN_HEIGHT:
+            self.just_passed_base = True
             self.rect.x = random.randint(0, SCREEN_WIDTH - 40)
             self.rect.y = -50
             self.has_damaged_player = False
