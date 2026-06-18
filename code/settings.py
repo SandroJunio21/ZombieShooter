@@ -24,6 +24,9 @@ ZOMBIE_PATH = '../Assets/zombie1.png'
 ZOMBIE_PATHS = ["../Assets/zombie1.png","../Assets/zombie2.png"]
 BOSS_ZOMBIE_PATH = "../Assets/zombie3.png"
 MENU_PATH = '../Assets/Menu.png'
+OPTIONS_PATH = '../Assets/options.png'
+SCORE_PATH = '../Assets/score.png'
+
 MENU_MUSIC_PATH = "../Assets/music_menu.mp3"
 GAME_MUSIC_PATH = "../Assets/music_game.mp3"
 
@@ -53,3 +56,5 @@ PLAYER_HIT_COOLDOWN_MS = 220 #800
 HEALTH_BAR_BG_COLOR = (30, 30, 30) #DARK_GRAY
 HEALTH_BAR_FILL_COLOR = (30, 30, 30) #(255, 0, 0)
 HEALTH_BAR_BORDER_COLOR = WHITE
+
+SCORE_DB_PATH = "../Assets/scores.db"
