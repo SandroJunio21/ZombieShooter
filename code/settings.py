@@ -26,6 +26,7 @@ BOSS_ZOMBIE_PATH = "../Assets/zombie3.png"
 MENU_PATH = '../Assets/Menu.png'
 OPTIONS_PATH = '../Assets/options.png'
 SCORE_PATH = '../Assets/score.png'
+MYSTERY_BOX_PATH = '../Assets/caixa.png'
 
 MENU_MUSIC_PATH = "../Assets/music_menu.mp3"
 GAME_MUSIC_PATH = "../Assets/music_game.mp3"
@@ -34,12 +35,16 @@ GAME_MUSIC_PATH = "../Assets/music_game.mp3"
 PLAYER_SIZE = (72, 72)
 ZOMBIE_SIZE = (90, 90)
 BOSS_ZOMBIE_SIZE = (180, 180)
+MYSTERY_BOX_SIZE = (70, 70)
 
 PLAYER_SPEED = 8
 PLAYER_HP = 3
 BULLET_SPEED = 10
 ZOMBIE_SPEED = 2
 ZOMBIE_HP = 1
+MYSTERY_BOX_SPEED = 3
+MYSTERY_BOX_SPAWN_MS = 12000
+RAPID_FIRE_DURATION_MS = 15000
 
 
 WHITE = (255, 255, 255)
