@@ -7,7 +7,6 @@ from background import Background
 from entities import Bullet
 from game import Game
 
-
 def play_music(path):
     try:
         pygame.mixer.music.load(path)
@@ -15,13 +14,11 @@ def play_music(path):
     except Exception:
         pass
 
-
 def draw_outlined_text(screen, text, font, color, pos):
     outline = font.render(text, True, (0, 0, 0))
     rendered = font.render(text, True, color)
     screen.blit(outline, (pos[0] - 3, pos[1] - 3))
     screen.blit(rendered, pos)
-
 
 def draw_shadow_text(screen, text, font, color, pos, shadow_offset=(10, 10)):
     shadow = font.render(text, True, (30, 30, 30))
@@ -30,7 +27,6 @@ def draw_shadow_text(screen, text, font, color, pos, shadow_offset=(10, 10)):
     screen.blit(shadow, (pos[0] + shadow_offset[0], pos[1] + shadow_offset[1]))
     screen.blit(outline, (pos[0] - 2, pos[1] - 2))
     screen.blit(rendered, pos)
-
 
 def init_score_db():
     conn = sqlite3.connect(SCORE_DB_PATH)
@@ -48,7 +44,6 @@ def init_score_db():
     conn.commit()
     conn.close()
 
-
 def save_score(player_name, score):
     now = datetime.datetime.now()
     played_date = now.strftime("%d/%m/%Y")
@@ -63,7 +58,6 @@ def save_score(player_name, score):
     conn.commit()
     conn.close()
 
-
 def get_top_scores(limit=10):
     conn = sqlite3.connect(SCORE_DB_PATH)
     cursor = conn.cursor()
@@ -76,6 +70,12 @@ def get_top_scores(limit=10):
     rows = cursor.fetchall()
     conn.close()
     return rows
+
+
+
+
+
+
 
 
 def main():
@@ -99,7 +99,7 @@ def main():
     selected_index = 0
     font = pygame.font.SysFont("28 Days Later", 70, bold=False)
     small_font = pygame.font.SysFont("Arial", 40, bold=False)
-    pause_font = pygame.font.SysFont("28 Days Later", 80, bold=False)
+    pause_font = pygame.font.SysFont("28 Days Later", 90, bold=False)
     title_font = pygame.font.SysFont("28 Days Later", 145, bold=False)
     popup_font = pygame.font.SysFont("28 Days Later", 60, bold=False)
     input_font = pygame.font.SysFont("Arial", 50, bold=False)
@@ -213,17 +213,15 @@ def main():
 
         elif state == "OPTIONS":
             options_background.draw(screen)
-            draw_outlined_text(screen, "Controles", font, WHITE, (860, 200))
+            draw_outlined_text(screen, "Controles", pause_font, WHITE, (840, 200))
             draw_outlined_text(screen, "Tecla de Espaço: Atira", small_font, WHITE, (800, 350))
             draw_outlined_text(screen, "Setas do teclado: Movimentação", small_font, WHITE, (800, 400))
             draw_outlined_text(screen, "Tecla ESC: Pause", small_font, WHITE, (800, 450))
             draw_outlined_text(screen, "Pressione ENTER para voltar", small_font, (255, 255, 0), (800, 550))
 
-
         elif state == "SCORE":
 
             score_background.draw(screen)
-
             draw_outlined_text(screen, "Ranking", score_title_font, WHITE, (770, 80))
 
             rank_x = 640
@@ -233,7 +231,6 @@ def main():
             hour_x = 1150
             row_y = 220
             row_height = 36
-
 
             draw_outlined_text(screen, "Pos", score_list_font, YELLOW, (rank_x, row_y))
             draw_outlined_text(screen, "Name", score_list_font, YELLOW, (name_x, row_y))
@@ -307,6 +304,9 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+
 
 
 

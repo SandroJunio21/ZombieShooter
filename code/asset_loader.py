@@ -1,7 +1,5 @@
 import pygame
-import os
 from settings import DARK_GRAY
-
 
 def load_image(path: str, size: tuple = None, alpha: bool = True, fallback_size=(64, 64), fallback_color=(255, 0, 255)) -> pygame.Surface:
     """Carrega imagem ou cria surface de erro caso nao encontrada."""
@@ -24,3 +22,4 @@ def create_fallback_background():
     for i in range(0, 600, 50):
         pygame.draw.line(surf, (70, 70, 70), (0, i), (800, i))
     return surf
+

@@ -1,5 +1,5 @@
 import pygame
-from settings import MENU_PATH, SCREEN_WIDTH, SCREEN_HEIGHT, BG_PATH
+from settings import SCREEN_WIDTH, SCREEN_HEIGHT, BG_PATH
 from asset_loader import load_image, create_fallback_background
 
 class Background:
