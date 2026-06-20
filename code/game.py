@@ -79,22 +79,22 @@ class Game:
     def configure_level(self, level):
         self.level = level
         if level == 1:
-            for _ in range(5): self.spawn_zombie()
-        elif level == 2:
             for _ in range(8): self.spawn_zombie()
+        elif level == 2:
+            for _ in range(12): self.spawn_zombie()
         elif level == 3:
-            self.spawn_zombie(speed=max(1, ZOMBIE_SPEED - 1), hp=ZOMBIE_HP * 15,  image_path=BOSS_ZOMBIE_PATH, image_size=BOSS_ZOMBIE_SIZE )
+            self.spawn_zombie(speed=max(1, ZOMBIE_SPEED - 1), hp=ZOMBIE_HP * 30,  image_path=BOSS_ZOMBIE_PATH, image_size=BOSS_ZOMBIE_SIZE )
 
     def update_level(self):
-        if self.score >= 300 and self.level < 3:
+        if self.score >= 1300 and self.level < 3:
             self.configure_level(3)
-        elif self.score >= 100 and self.level < 2:
+        elif self.score >= 700 and self.level < 2:
             self.configure_level(2)
 
     def maintain_zombie_count(self):
         if self.victory: return
-        if self.level == 1 and len(self.zombies) < 5: self.spawn_zombie()
-        elif self.level == 2 and len(self.zombies) < 8: self.spawn_zombie()
+        if self.level == 1 and len(self.zombies) < 8: self.spawn_zombie()
+        elif self.level == 2 and len(self.zombies) < 12: self.spawn_zombie()
 
     def update(self, keys):
         if self.defeated or self.victory: return
@@ -203,6 +203,8 @@ class Game:
             for dy in range(-outline_width, outline_width + 1):
                 if dx == 0 and dy == 0:
                     continue
+                self.screen.blit(outline, outline.get_rect(center=(rect.centerx + dx, rect.centery + dy)))
+                self.screen.blit(rendered, rect)
 
     def draw_outlined_text_top_left(self, text, font, topleft, color, outline_color=(0, 0, 0),
                                     outline_width=2):

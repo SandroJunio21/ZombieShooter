@@ -2,7 +2,7 @@ import pygame
 from settings import DARK_GRAY
 
 def load_image(path: str, size: tuple = None, alpha: bool = True, fallback_size=(64, 64), fallback_color=(255, 0, 255)) -> pygame.Surface:
-    """Carrega imagem ou cria surface de erro caso nao encontrada."""
+
     try:
         image = pygame.image.load(path)
         if alpha: image = image.convert_alpha()

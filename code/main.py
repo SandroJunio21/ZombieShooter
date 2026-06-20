@@ -71,13 +71,6 @@ def get_top_scores(limit=10):
     conn.close()
     return rows
 
-
-
-
-
-
-
-
 def main():
     pygame.init()
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
@@ -111,6 +104,7 @@ def main():
     end_result_text = ""
     score_saved = False
     top_scores = []
+    game_over_wait_start = 0
 
     while running:
         keys = pygame.key.get_pressed()
@@ -179,7 +173,7 @@ def main():
                     state = "MENU"
 
             elif state == "PLAYING" and event.type == pygame.KEYDOWN:
-                if end_popup_active:
+                if game_over_wait_start != 0:
                     continue
                 if event.key == pygame.K_ESCAPE:
                     state = "PAUSED"
@@ -255,14 +249,21 @@ def main():
         elif state == "PLAYING":
             game.update(keys)
             game.draw()
-            if not end_popup_active and (getattr(game, 'defeated', False) or getattr(game, 'victory', False)):
-                end_popup_active = True
+
+            if not end_popup_active and game_over_wait_start == 0 and (
+                    getattr(game, 'defeated', False) or getattr(game, 'victory', False)):
+                game_over_wait_start = pygame.time.get_ticks()
                 if game.victory:
                     end_result_text = "VITORIA"
                 else:
                     end_result_text = "DERROTA"
                 player_name_input = ""
                 score_saved = False
+
+            if game_over_wait_start != 0 and not end_popup_active:
+                if pygame.time.get_ticks() - game_over_wait_start >= 2000:
+                    end_popup_active = True
+                    game_over_wait_start = 0
 
             if end_popup_active:
                 overlay = pygame.Surface((SCREEN_WIDTH, SCREEN_HEIGHT))
@@ -304,6 +305,13 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+
+
+
+
+
 
 
 

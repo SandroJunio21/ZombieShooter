@@ -1,8 +1,9 @@
 import pygame
 import random
 from settings import SCREEN_WIDTH, SCREEN_HEIGHT, PLAYER_SPEED, YELLOW, BULLET_SPEED, PLAYER_PATH, \
-    ZOMBIE_PATHS, ZOMBIE_SIZE, MYSTERY_BOX_PATH, MYSTERY_BOX_SIZE, MYSTERY_BOX_SPEED
+    ZOMBIE_PATHS, ZOMBIE_SIZE, MYSTERY_BOX_PATH, MYSTERY_BOX_SIZE, MYSTERY_BOX_SPEED, SPAWN_MARGIN
 from asset_loader import load_image
+
 
 class Player(pygame.sprite.Sprite):
     def __init__(self, x, y):
@@ -37,7 +38,8 @@ class Zombie(pygame.sprite.Sprite):
         if image_size is None:
             image_size = ZOMBIE_SIZE
         self.image = load_image(image_path, image_size)
-        self.rect = self.image.get_rect(x=random.randint(0, SCREEN_WIDTH - 40), y=-50)
+        margin = SPAWN_MARGIN
+        self.rect = self.image.get_rect(x=random.randint(margin, SCREEN_WIDTH - image_size[0] - margin), y=-50)
         self.speed = speed
         self.hp = hp
         self.max_hp = hp
@@ -50,7 +52,8 @@ class Zombie(pygame.sprite.Sprite):
         self.rect.y += self.speed
         if self.rect.top > SCREEN_HEIGHT:
             self.just_passed_base = True
-            self.rect.x = random.randint(0, SCREEN_WIDTH - 40)
+            margin = SPAWN_MARGIN
+            self.rect.x = random.randint(margin, SCREEN_WIDTH - self.rect.width - margin)
             self.rect.y = -50
             self.has_damaged_player = False
 
@@ -67,3 +70,5 @@ class MysteryBox(pygame.sprite.Sprite):
         self.rect.y += self.speed
         if self.rect.top > SCREEN_HEIGHT:
             self.kill()
+
+
