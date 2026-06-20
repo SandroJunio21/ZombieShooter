@@ -5,12 +5,12 @@ SCREEN_WIDTH = 1280
 SCREEN_HEIGHT = 800
 FPS = 60
 
-#colors
-COLORS = {
-    'white': (255, 255, 255), 'black': (0, 0, 0), 'red': (200, 50, 50),
-    'green': (50, 200, 50), 'blue': (50, 50, 200), 'gray': (100, 100, 100),
-    'yellow': (255, 255, 0), 'purple': (128, 0, 128)
-}
+# #colors
+# COLORS = {
+#     'white': (255, 255, 255), 'black': (0, 0, 0), 'red': (200, 50, 50),
+#     'green': (50, 200, 50), 'blue': (50, 50, 200), 'gray': (100, 100, 100),
+#     'yellow': (255, 255, 0), 'purple': (128, 0, 128)
+# }
 
 # #phases
 # PHASES = {
@@ -20,19 +20,19 @@ COLORS = {
 # }
 
 #images
-BG_PATH = '../Assets/background.png'
-PLAYER_PATH = '../Assets/player.png'
-ZOMBIE_PATH = '../Assets/zombie1.png'
-ZOMBIE_PATHS = ["../Assets/zombie1.png","../Assets/zombie2.png"]
-BOSS_ZOMBIE_PATH = "../Assets/zombie3.png"
-MENU_PATH = '../Assets/Menu.png'
-OPTIONS_PATH = '../Assets/options.png'
-SCORE_PATH = '../Assets/score.png'
-MYSTERY_BOX_PATH = '../Assets/caixa.png'
+BG_PATH = 'Assets/background.png'
+PLAYER_PATH = 'Assets/player.png'
+ZOMBIE_PATH = 'Assets/zombie1.png'
+ZOMBIE_PATHS = ["Assets/zombie1.png","Assets/zombie2.png"]
+BOSS_ZOMBIE_PATH = "Assets/zombie3.png"
+MENU_PATH = 'Assets/Menu.png'
+OPTIONS_PATH = 'Assets/options.png'
+SCORE_PATH = 'Assets/score.png'
+MYSTERY_BOX_PATH = 'Assets/caixa.png'
 
 #music
-MENU_MUSIC_PATH = "../Assets/music_menu.mp3"
-GAME_MUSIC_PATH = "../Assets/music_game.mp3"
+MENU_MUSIC_PATH = "Assets/music_menu.mp3"
+GAME_MUSIC_PATH = "Assets/music_game.mp3"
 
 # Sizes
 PLAYER_SIZE = (78, 78)
@@ -71,6 +71,6 @@ HEALTH_BAR_FILL_COLOR = (30, 30, 30) #(255, 0, 0)
 HEALTH_BAR_BORDER_COLOR = WHITE
 SPAWN_MARGIN = 50
 
-SCORE_DB_PATH = "../Assets/scores.db"
+SCORE_DB_PATH = "scores.db"
 
 

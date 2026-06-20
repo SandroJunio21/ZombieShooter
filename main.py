@@ -1,11 +1,11 @@
 import sqlite3
 import datetime
 import pygame
-from settings import SCREEN_WIDTH, SCREEN_HEIGHT, FPS, WHITE, MENU_PATH, MENU_MUSIC_PATH, GAME_MUSIC_PATH, SCORE_PATH, \
+from code.settings import SCREEN_WIDTH, SCREEN_HEIGHT, FPS, WHITE, MENU_PATH, MENU_MUSIC_PATH, GAME_MUSIC_PATH, SCORE_PATH, \
     OPTIONS_PATH, SCORE_DB_PATH, YELLOW
-from background import Background
-from entities import Bullet
-from game import Game
+from code.background import Background
+from code.entities import Bullet
+from code.game import Game
 
 def play_music(path):
     try:
